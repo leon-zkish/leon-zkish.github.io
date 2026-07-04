@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<!-- HeaderStart -->
+  <head>
+  
+    <title>ZKISH: Consume</title>
+	<link rel="icon" type="image/x-icon" href="https://leon-zkish.github.io/RACC.png">
+  </head>  
+  <body style="background-color:black;">
+    <center><h1 style="color: #6B00A1;" onclick="alert('HURTS')"><font face="Courier">Consume</center></font></h1>
+	<center><a href="index.html"><img src="https://leon-zkish.github.io/zkishwhite.png" alt="ZKISH" style="width: 128px; min-width: 128px;"></a></center>
+	<!-- HeaderEnd -->
+	
+	
+	<center><p style="color: white; font-size: 1.6em;"><font face="Consolas">[ DORMITABIS: Disk A & Disk B CDs now available! ]</center></font>
+	<center><p style="color: white; font-size: 1em;"><font face="Consolas">Check out the trailer!</center></font>
+	<center><iframe width="500" height="300" src="https://www.youtube.com/embed/wAqWeFbInXI?si=L5Zr0bZkI_GWBCpi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
+	
+<!-- CDs -->
+	<style>
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 32px;          
+    margin-bottom: 2px;
+	
+a:link {  color: #6B00A1;}
+a:visited {  color: #ff0000;}
+a:hover {  color: #ffb800;
+  text-decoration: underline;}
+a:active {  color: white;}
+  }
+
+</style>
+
+<!-- a -->
+<div class="container">
+  <a href="https://elasticstage.com/zkish/releases/dormitabis-disk-a-1st-edition-album" target="_blank";><img src="https://leon-zkish.github.io/rotating cd a.gif" alt="ZKISH" style="width: 384px;">
+  <div>
+    <p style="color: #6B00A1; font-family: Consolas; font-size: 2em;">DORMITABIS (Disk A) 1st edition</a></p>
+	<p style="color: white; font-family: Consolas;">Limited edition! [UP TO 64 FOR SALE]<br>Physical CD + 2 extra tracks + booklet</p>
+    <button popovertarget="diska">About Disk A</button>
+  </div>
+</div>
+<div id="diska" popover style="color: black;">
+  <p style="font-family: Consolas; max-width: 1280px; font-size: .96em;">By buying 'DORMITABIS (Disk A) 1st edition' you get:<br>+ A physical version of the digitally available DORMITABIS (Disk A) with improved mixes and versions.<br>+ 2 extra tracks (which you may look up and preview in the shopping website)<br>+ A booklet with lyrics and other content related to the tracks present in the CD<br><br>When clicking the link for the product you may purchase and check via ElasticStage and/or check out it's tracklist with available previews, there's a limited ammount of these for production so get yours now!<br><br>These physical products are hosted, produced and shipped by an external website and company, so unless you purchased via a THRASH PANDA member from them directly on their proper official social media or contact ways, THRASH PANDA or ZKISH are not held responsible for failure by ElasticStage of any kind, if that happens, we'd appreciate to know about it to provide support in what's possible for us.<br>By buying any of the products here published, you agree to all of this information and it's changes if there's any at any given time.</p>
+</div>
+
+<!-- b -->
+<div class="container">
+  <a href="https://elasticstage.com/zkish/releases/dormitabis-disk-b-1st-edition-album" target="_blank";><img src="https://leon-zkish.github.io/rotating cd b.gif" alt="ZKISH" style="width: 384px;">
+  <div>
+    <p style="color: #6B00A1; font-family: Consolas; font-size: 2em;">DORMITABIS (Disk B) 1st edition</a></p>
+	<p style="color: white; font-family: Consolas;">Limited edition! [UP TO 64 FOR SALE]<br>Physical CD + 2 extra tracks + booklet</p>
+    <button popovertarget="diskb">About Disk B</button>
+  </div>
+</div>
+<div id="diskb" popover style="color: black;">
+  <p style="font-family: Consolas; max-width: 1280px; font-size: .96em;">By buying 'DORMITABIS (Disk B) 1st edition' you get:<br>+ A physical version of the digitally available DORMITABIS (Disk B) with improved mixes and versions.<br>+ 2 extra tracks (which you may look up and preview in the shopping website)<br>+ A booklet with lyrics and other content related to the tracks present in the CD<br><br>When clicking the link for the product you may purchase and check via ElasticStage and/or check out it's tracklist with available previews, there's a limited ammount of these for production so get yours now!<br><br>These physical products are hosted, produced and shipped by an external website and company, so unless you purchased via a THRASH PANDA member from them directly on their proper official social media or contact ways, THRASH PANDA or ZKISH are not held responsible for failure by ElasticStage of any kind, if that happens, we'd appreciate to know about it to provide support in what's possible for us.<br>By buying any of the products here published, you agree to all of this information and it's changes if there's any at any given time.</p>
+</div>
+	
+	
+	<!-- FooterStart -->
+	<center><a href="/thrashpanda/index.html"><img src="https://leon-zkish.github.io/RACC.png" alt="THRASH PANDA, ALWAYS LITTERING" style="width: 132px; min-width: 132px;"></a></center>
+	<center><p style="color: white;"><font face="Consolas">Looking for something?</font>
+	<form>
+		<select id="frameworks" onchange="goToPage()">
+		<option>???</option>
+		<option value="/index.html">ZKISH</option>
+		<option value="/portfolio/index.html">Portfolio</option>
+		<option value="/consume/index.html">ZKISHWARE</option>
+		<option value="/zkishware/index.html">ZKISHWARE</option>
+		<option value="/contact/index.html">Contact</option>
+		</select>
+	</form></center>
+	<script>
+	function goToPage() {
+		const page = document.getElementById("frameworks").value;
+		if (page) {
+			window.location.href = page;
+		}}
+	</script>
+	<center><p style="color: white; font-size: 0.8em;"><font face="Courier">Artworks, renders, models and all content present on this website made and owned by © Luciano León, ZKISH.</font></center>
+	<!-- FooterEnd -->
+  </body>
+ 
+</html>
