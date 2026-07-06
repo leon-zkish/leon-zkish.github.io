@@ -7,6 +7,7 @@
   
     <title>ZKISH: Index</title>
 	<link rel="icon" type="image/x-icon" href="https://leon-zkish.github.io/RACC.png">
+	
 	<style>
 		#bouncing-text {
 			position: absolute;
@@ -23,14 +24,15 @@
 			filter: drop-shadow(0 0 2px white) drop-shadow(0 0 6px white) drop-shadow(0 0 20px white);
 		}
 		@keyframes bounce {
-    		from {
-    		    transform: translateY(0);
-    		}
-    		to {
-        	transform: translateY(-10px);
-    		}
-		}
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
 	</style>
+	
   </head>  
   <body style="background-color:black;">
     <center><h1 style="color: #6B00A1;" onclick="alert('HURTS')"><font face="Courier">ZKISH</center></font></h1>
@@ -64,15 +66,22 @@
 	<center><p style="color: white; font-size: 0.8em;"><font face="Courier">Artworks, renders, models and all content present on this website made and owned by © Luciano León, ZKISH.</font></center>
 	<!-- FooterEnd -->
   </body>
+  
   <script>
 const textElement = document.getElementById('bouncing-text');
+
 const options = ["THRASH PANDA, KEEP LITTERING", "Looking for something?", "Check out /consume", "Check out /ThrashPanda", "It hurts.", "Where shall I go", "DORMITABIS: Disk A & B out NOW!", "Shotout Thrash Panda", "Shotout Kurbstomp Kult", "weedplaya62.com", "Huh", "@leon_zkish on Instagram", "ZKISH on Spotify!", "RUST4466 on Spotify!", "I love white bitches!!!!!", "Do NOT ask 4 comms w/o money.", "Gosloke on Spotify!", "Man you a bitch.", "X el pico mala paga!!1!", "Who are you?", "KEEP LITTERING!", "Plugins & Drumkits pronto!", "Te amo June", "...", "XD RAWR!!!", "How are you today?", "CALL +1 (888) 976-5981 NOW!!!", "Did you notice these are random?", "Don't mind me, js bouncing here...", "Check out the THRASH PANDA Discord!", "Look around, I don't mind.", "I cannot feel.", "I want to love you.", "<Input text>", "<Input file>", "My guts can't stand it.", "Punky on my chest!", "@leon_zkish on Soundcloud", "Hate me but make me feel.", "Welcome back.", "'CRUSHING' COMING SOON", "Do NOT ask 4 comms w/o money.", "No frontee con Yenes", "Si fumo un poco más.", "Se me derrite el rostro", "Puta no me hables.?", "RYOKO on Spotify!", "Ésta noche, yo voy a llorar.", "Si tomo yo voy a olvidar.", "Tengo paranoia", "@leon_zkish everywhere", "Puta soy prolijo", "Have you listened to DORMITABIS yet?", "Bitch no has estado en Japón", "Fuck I gotta study", "Se acuerdan de Made By Adxmz?", "Ya toi", "Quiero culiarme una gótica!", "BROKE NIGGA ALERT!", "Niggie me das risa", "Mato un pucho-", "-mientras los mapaches prenden zaza", "There's a ≈ 13.33% chance of getting no message!", "I might die tonight", "Está en mi cabeza", "Labios de cereza...", "UNA VEZ MÁS!", "UNA VEZ MÁS!", "UNA VEZ MÁS!", "Trátame como a un gato.", "Viendo colores", "Quiero darte flores", "Me pudro", "I'm rotting", "Exposed flesh, no skin.", "#FreeAdxmz", "Aguanten los travas", "BITCH I'M A STAR", "Doy asco", "Put your brain on it.", "HELLHOUNDS!", "Munchin' on gold.", "/consume !!!!!", "/portfolio !!!!!", "Prod. ZKISH, probably...", "Brought to you by THRASH PANDA!", "There's change you don't get any message! Or this one!!!", "'CRUSHING' PRONTO!!!", "Please! I'm a star!!!", "Ion fw any of y'all I'mma be so fr", "I'm kinda drunk", "Fuck you, bitch.", "Tu grupito de mierda, un desecho.", "Una navaja en el pecho", "Pensando en tí", "My name's actually Luciano León btw.", "Sácenme de Conchalí", "Pick up.", "Gosloke was here!", "RUST4466 was here!", "RYOKO was here!", "THRASH PANDA", "ALWAYS LITTERING!", "Click on the raccoon, I know you want to...", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+
 textElement.textContent = options[Math.floor(Math.random() * options.length)];
+
 let rect = textElement.getBoundingClientRect();
+
 let maxX = window.innerWidth - rect.width;
 let maxY = window.innerHeight - rect.height;
+
 let posX = Math.random() * maxX;
 let posY = Math.random() * maxY;
+
 let velocityX = 2;
 let velocityY = 2;
 function updateBounds() {
@@ -80,14 +89,33 @@ function updateBounds() {
     maxX = window.innerWidth - rect.width;
     maxY = window.innerHeight - rect.height;
 }
+
 window.addEventListener('resize', updateBounds);
+
+const margin = 4;
 function animate() {
-    if (posX >= maxX || posX <= 0) velocityX = -velocityX;
-    if (posY >= maxY || posY <= 0) velocityY = -velocityY;
     posX += velocityX;
     posY += velocityY;
+
+    if (posX > maxX - margin) {
+        posX = maxX - margin;
+        velocityX *= -1;
+    } else if (posX < margin) {
+        posX = margin;
+        velocityX *= -1;
+    }
+
+    if (posY > maxY - margin) {
+        posY = maxY - margin;
+        velocityY *= -1;
+    } else if (posY < margin) {
+        posY = margin;
+        velocityY *= -1;
+    }
+
     textElement.style.left = posX + "px";
     textElement.style.top = posY + "px";
+
     requestAnimationFrame(animate);
 }
 animate();
