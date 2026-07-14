@@ -257,9 +257,24 @@
 		talkingAudio.currentTime = 0;
 		talkingAudio.play().catch(() => {});
 		talking = true;
+		const MinInter = 12;
 		if (Math.random() < 0.08) {
-			startChoice();
-			return;
+			if (interactions >= MinInter) {
+				startChoice();
+				return;
+			} else {
+				bubble.textContent = `...Not yet. (${interactions}).`;
+				bubble.style.display = "block";
+				const talkTime = bubble.textContent.length * 48;
+				setTimeout(() => {
+					bubble.style.display = "none";
+					Mask.src = idleImage;
+					talkingAudio.pause();
+					talkingAudio.currentTime = 0;
+					talking = false;
+				}, talkTime);
+				return;
+			}
 		}
 		const message = getRandomDialogue();
 		bubble.textContent = message;
