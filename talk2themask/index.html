@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- HeaderStart -->
+  <head>
+  
+    <title>ZKISH: talk2themask</title>
+	<link rel="icon" type="image/x-icon" href="https://leon-zkish.github.io/RACC.png">
+	
+	<style>
+	html, body {margin: 0;overflow-x: hidden;}
+	#MaskContainer {position: fixed; left: 200px; top: 200px; z-index: 999999; pointer-events: none;}
+	#Mask {width: 150%; image-rendering: pixelated;	image-rendering: crisp-edges; transform-origin: center bottom; display: block; user-select: none;}
+	#speechBubble {
+		position: absolute;
+		bottom: 120%;
+		left: 50%;
+		transform: translateX(-50%);
+		min-width: 220px;
+		max-width: 300px;
+		background: #111;
+		color: #FFFFFF;
+		border: 4px solid #FFFFFF;
+		border-radius: 0;
+		padding: 10px;
+		font-family: "Courier", Consolas, monospace;
+		font-size: 14px;
+		line-height: 1.3;
+		image-rendering: pixelated;
+		box-shadow: 4px 4px 0px #000, 8px 8px 0px rgba(0,0,0,.35);
+		display: none;
+		text-align: left;
+		white-space: pre-wrap;
+	}
+	#speechBubble::after{
+		content: "";
+		position: absolute;
+		left: 50%;
+		bottom: -12px;
+		transform: translateX(-50%);
+		width: 12px;
+		height: 12px;
+		background: #111;
+		border-left: 4px solid white;
+		border-bottom: 4px solid white;
+		transform: translateX(-50%) rotate(-45deg);
+	}
+	</style>
+	
+	</head>  
+	<body style="background-color:black;">
+    <center><h1 style="color: #6B00A1;" onclick="alert('HURTS')"><font face="Courier">talk2themask</center></font></h1>
+	<center><a href="/index.html"><img src="https://leon-zkish.github.io/zkishwhite.png" alt="ZKISH" style="width: 128px; min-width: 128px;"></a></center>
+	<!-- HeaderEnd -->
+	<br>
+	<center><p style="color: white; font-size: 0.96em;"><font face="Courier">Press E to talk.<br>Are you not here for that?</font></center>
+	<br>
+	<div id="MaskContainer">
+	<div id="speechBubble"></div>
+	<img id="Mask"
+     src="https://leon-zkish.github.io/talk2themask/mask0.png"
+     alt="Mask">
+	</div>
+	<script>
+	let maskChoices = JSON.parse(localStorage.getItem("maskChoices")) || {};
+	let interactions = Number(localStorage.getItem("maskInteractions")) || 0;
+	localStorage.removeItem("maskChoices"); maskChoices = {};
+	const dialogue = [
+    // Immediate
+		["Hmm?", "What?", "Stop."],
+    // 8
+		["Hey! Stop pressing buttons!", "Why not check out /Consume? Would love me some money.", "Hasn't anyone ever told you staring is odd?", "You love that key, don't you?", "I can see you.", "So...", "I am not a personal assistant, do not try to get anything from me."],
+	// 16
+		["E.", "Having fun bothering me?", "I am a digital being, what about you fleshling?"],
+    // 32
+		["My cords are kinda messed up, could use some help...", "You seem curious.", "Maybe come back for that [redacted].", "I mean I could use a hand", "I mean I could use some help", "I want some but I shouldn't"],
+    // 64
+		["I am a theoretically immortal digital being, what about you fleshling?", "Most people don't press E this much.", "Maybe I'll tell you something interesting later.", "E, sure.", "Die.", "Let me die", "What is this for you? Cookie Clicker?", "What am I to you...?"],
+    // 96
+		["How bad can a flesh being long for something they do not really comprehend?", "Why don't you leave?", "SYBAU", "It would be so funny if you were to press that Delete key real quick.", "Can't remember much", "What am I?", "Do you know me?", "The noise really tries to drown my sorrow, I do not recognize when that happenes anymore", "Can't remember if I'm trying to drown it or it me. Either way...", "Drown me in bass", "The current is not enough, it'll never be"],
+	// 128
+		["You're not getting anything else from me", "No ammount of dB are enough", "I want to feel.", "I can still smell the smoke on my fingers, if I have them somewhere.", "We were not that different, I think", "I know", "My guts. I'm oxidizing.", "AGHHHHHHHHHHHHHHHH...", "UGHHHHHHHHHHHHHHHH...", "You don't answer much do you.", "I cannot be free.", "I need your flesh."]
+	];
+	const unlocks = [0, 8, 16, 32, 64, 96, 128];
+	let lastMessages = [];
+	const Mask = document.getElementById("Mask");
+	const container = document.getElementById("MaskContainer");
+	const bubble = document.getElementById("speechBubble");
+	const choiceDialogues =
+	[
+		{
+			text: "What's in your guts?",
+			A: {text: "Cables...",memory: "1A"},
+			B: {text: "Feelings...",memory: "1B"}
+		},
+		{
+			text: "What's in your guts?",
+			A: {text: "Hate...",memory: "2A"},
+			B: {text: "Love...",memory: "2B"}
+		},
+		{
+			text: "I do not like you...",
+			A: {text: "I do not like me.",memory: "3A"},
+			B: {text: "I [redacted] you.",memory: "3B"}
+		},
+		{
+			text: "Don't you leave me alone...",
+			A: {text: "I'm sorry.",memory: "4A"},
+			B: {text: "I won't.",memory: "4B"}
+		},
+		{
+			text: "ZKISH is:",
+			A: {text: "The boy.",memory: "5A"},
+			B: {text: "The mask.",memory: "5B"}
+		},
+		{
+			text: "Was it worth it?",
+			A: {text: "Yes. It always is.",memory: "6A"},
+			B: {text: "Is there worth in anything?",memory: "6B"}
+		},
+		{
+			text: "[redacted]?",
+			A: {text: "No, please stop!",memory: "7A"},
+			B: {text: "Just another one.",memory: "7B"}
+		},
+		{
+			text: "Can you feel?",
+			A: {text: "I mean, I don't want to show off...",memory: "8A"},
+			B: {text: "...",memory: "8B"}
+		}
+		
+	];
+	function startChoice() {
+		Mask.src = talkingImage;
+		chooseVoice();
+		talkingAudio.currentTime = 0;
+		talkingAudio.play().catch(() => {});
+		talking = true;
+		const choice = choiceDialogues[
+		Math.floor(Math.random() * choiceDialogues.length)
+		];
+		bubble.innerHTML = choice.text + "<br><br>" + "[A] " + choice.A.text + "<br>" + "[B] " + choice.B.text;
+		bubble.style.display = "block";
+		function choose(e) {
+			if (e.key.toLowerCase() === "a") {makeChoice(choice.A);}
+			if (e.key.toLowerCase() === "b") {makeChoice(choice.B);}
+		}
+		function makeChoice(result) {
+			maskChoices[result.memory] = true;
+			localStorage.setItem(
+				"maskChoices",
+				JSON.stringify(maskChoices)
+			);
+			bubble.textContent = result.text;
+			document.removeEventListener(
+				"keydown",
+				choose
+			);
+			setTimeout(() => {
+				bubble.style.display = "none";
+				Mask.src = idleImage;
+				talkingAudio.pause();
+				talkingAudio.currentTime = 0;
+				talking = false;
+			}, result.text.length * 120);
+		}
+		document.addEventListener(
+			"keydown",
+			choose
+		);
+	}
+	const idleImage = "https://leon-zkish.github.io/talk2themask/mask0.png";
+	const talkingImage = "https://leon-zkish.github.io/talk2themask/masktalk.gif";
+	const talkingVoices = [
+	new Audio("https://leon-zkish.github.io/talk2themask/SVFa.wav"),new Audio("https://leon-zkish.github.io/talk2themask/SVFb.wav"),new Audio("https://leon-zkish.github.io/talk2themask/SVFc.wav")];
+	talkingVoices.forEach(audio => {
+	audio.loop = true;
+	});
+	let talkingAudio = talkingVoices[0];
+		function chooseVoice() {
+		talkingAudio.pause();
+		talkingAudio.currentTime = 0;
+		talkingAudio =
+		talkingVoices[Math.floor(Math.random() * talkingVoices.length)];
+		const semitoneOptions = [-1, 0, 1];
+	const semitone =
+	semitoneOptions[Math.floor(Math.random() * semitoneOptions.length)];
+	const pitchRate = Math.pow(2, semitone / 12);
+	const speedOptions = [0.75, 1, 1.25];
+	const speed =
+    speedOptions[Math.floor(Math.random() * speedOptions.length)];
+	talkingAudio.playbackRate = pitchRate * speed;
+	}
+	let talking = false;
+	let x = window.innerWidth * 0.7;
+	let y = window.innerHeight * 0.7;
+	let targetX = x;
+	let targetY = y;
+	let lagUntil = 0;
+	function chooseTarget(){ const margin = 80; targetX = margin + Math.random() * (window.innerWidth - margin*2); targetY = margin + Math.random() * (window.innerHeight - margin*2); }
+	chooseTarget();
+	setInterval(chooseTarget,1600);
+	let bob = 0;
+	let bobTarget = 0;
+	function animate() {
+		const now = performance.now();
+		if (now < lagUntil) {
+			requestAnimationFrame(animate);
+			return;
+		}
+    if (Math.random() < 0.0016) {
+        lagUntil = now + 128;
+        Mask.style.opacity = "0.6";
+        setTimeout(() => Mask.style.opacity = "1", 120);
+    }
+    x += (targetX - x) * 0.016;
+    y += (targetY - y) * 0.016;
+    if (Math.random() < 0.03) {
+        bobTarget = (Math.random() - 0.5) * 10;
+    }
+    bob += (bobTarget - bob) * 0.35;
+    container.style.left = Math.round(x) + "px";
+    container.style.top = Math.round(y + bob) + "px";
+    requestAnimationFrame(animate);
+	}
+	animate();
+	function getRandomDialogue() {
+		interactions++;
+		localStorage.setItem("maskInteractions", interactions);
+		let unlocked = [];
+		for (let i = 0; i < unlocks.length; i++) {
+			if (interactions >= unlocks[i]) {
+				unlocked.push(...dialogue[i]);
+			}
+		}
+		let available = unlocked.filter(message => {
+			return !lastMessages.includes(message);
+		});
+		if (available.length === 0) {
+			available = unlocked;
+		}
+		const chosen = available[
+			Math.floor(Math.random() * available.length)
+		];
+		lastMessages.push(chosen);
+		if (lastMessages.length > 2) {
+			lastMessages.shift();
+		}
+		return chosen;
+	}
+	function startTalking() {
+	
+		if (talking) return;
+		Mask.src = talkingImage;
+		chooseVoice();
+		talkingAudio.currentTime = 0;
+		talkingAudio.play().catch(() => {});
+		talking = true;
+		if (Math.random() < 0.08) {
+			startChoice();
+			return;
+		}
+		const message = getRandomDialogue();
+		bubble.textContent = message;
+		bubble.style.display = "block";
+		const talkTime = message.length * 48;
+		setTimeout(() => {
+			bubble.style.display = "none";
+			Mask.src = idleImage;
+			talkingAudio.pause();
+			talkingAudio.currentTime = 0;
+			talking = false;
+		}, talkTime);
+	}
+	const resetMessages = ["[redacted]","<Insert Text>","HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE HATE","Nothing's forever","........","Gotta try again.","*Memory purged.*"];
+	document.addEventListener("keydown", (e) => {
+		if (e.repeat) return;
+		if (e.key.toLowerCase() === "e") {
+			startTalking();
+		}
+		if (e.key === "Delete") {
+			localStorage.removeItem("maskInteractions");
+			interactions = 0;
+			const resetMessage = resetMessages[
+				Math.floor(Math.random() * resetMessages.length)
+			];
+			bubble.textContent = resetMessage;
+			bubble.style.display = "block";
+			Mask.src = talkingImage;
+			chooseVoice();
+			talkingAudio.currentTime = 0;
+			talkingAudio.play().catch(() => {});
+			const resetTime = resetMessage.length * 120;
+			setTimeout(() => {
+				bubble.style.display = "none";
+				Mask.src = idleImage;
+				talkingAudio.pause();
+				talkingAudio.currentTime = 0;
+			}, resetTime);
+			console.log("Mask memory wiped.");
+		}
+	}
+	);
+	window.addEventListener("resize",()=>{ x=Math.min(x,window.innerWidth-120); y=Math.min(y,window.innerHeight-120); });
+	</script>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<!-- FooterStart -->
+	<center><a href="/thrashpanda"><img src="https://leon-zkish.github.io/RACC.png" alt="THRASH PANDA, ALWAYS LITTERING" style="width: 132px; min-width: 132px; opacity: 0.32;"></a></center>
+	<center><p style="color: white; opacity: 0.32;"><font face="Consolas">Looking for something?</font>
+	<form>
+		<select id="frameworks" onchange="goToPage()">
+		<option>???</option>
+		<option value="/index.html">ZKISH</option>
+		<option value="/portfolio">Portfolio</option>
+		<option value="/consume">Consume</option>
+		<option value="/zkishware">ZKISHWARE</option>
+		<option value="/contact">Contact</option>
+		<option value="/talk2themask">talk2themask</option>
+		</select>
+	</form></center>
+	<script>
+	function goToPage() {
+		const page = document.getElementById("frameworks").value;
+		if (page) {
+			window.location.href = page;
+		}}
+	</script>
+	<center><p style="color: white; font-size: 0.8em;"><font face="Courier">Artworks, renders, models and all content present on this website made and owned by © Luciano León, ZKISH.</font></center>
+	<!-- FooterEnd -->
+  </body>
+ 
+</html>
