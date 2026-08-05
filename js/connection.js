@@ -2,7 +2,7 @@ class ZkishConnection extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <style>
-            .connection-box {position: fixed;top: 4px;left: 4px;background: #111;color: white;padding: 8px 16px;border: 1px solid #6b00a1;border-radius: 5px;font-family: Consolas, monospace;font-size: 16px;z-index: 9999;
+            .connection-box {position: fixed;top: 4px;left: 4px;background: #111;color: white;padding: 8px 16px;border: 1px solid #6b00a1;border-radius: 5px;font-family: Consolas, monospace;font-size: 12px;z-index: 9999;
             }
         </style>
         <div class="connection-box">
