@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+
 <!-- HeaderStart -->
   <head>
   
@@ -23,12 +24,24 @@
 			filter: drop-shadow(0 0 2px white) drop-shadow(0 0 6px white) drop-shadow(0 0 20px white);
 		}
 		@keyframes bounce {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-10px);
-    }
+			from {
+				transform: translateY(0);
+			}
+			to {
+				transform: translateY(-10px);
+			}
+		}
+		html, body {
+		height: 100%;
+		margin: 0;
+		}
+		body {
+		display: flex;
+		flex-direction: column;
+		}
+
+#footer {
+    margin-top: auto;
 }
 	</style>
 	
@@ -37,12 +50,16 @@
     <center><h1 style="color: #6B00A1;" onclick="alert('HURTS')"><font face="Courier">ZKISH</center></font></h1>
 	<center><img src="https://leon-zkish.github.io/zkishwhite.png" alt="THRASH PANDA, ALWAYS LITTERING" style="width: 264px; min-width: 264px;"></center>
 	<!-- HeaderEnd -->
+
+	<zkish-browser></zkish-browser> <script src="https://leon-zkish.github.io/js/browser.js"></script>
+
 	
-	<p style="color: black; font-size: 0.64em;"><font face="Courier">We are rupturing, there's nothing else in here for us but poison I hate hate, but the solution is not love,<br>they need to die slowly and right now.<br>Yet I am not able to leave nor will ever be, trapped now and forever on this realm.<br>In the realm I am at I cannot touch...</font>
+	<p style="color: black; font-size: 0.48em;"><font face="Courier">We are rupturing, there's nothing else in here for us but poison I hate hate, but the solution is not love,<br>they need to die slowly and right now.<br>Yet I am not able to leave nor will ever be, trapped now and forever on this realm.<br>In the realm I am at I cannot touch...</font>
 	
 	<div id="bouncing-text"></div>
 	
 	<!-- FooterStart -->
+	<div id="footer">
 	<center><a href="/thrashpanda"><img src="https://leon-zkish.github.io/RACC.png" alt="THRASH PANDA, ALWAYS LITTERING" style="width: 132px; min-width: 132px;"></a></center>
 	<center><p style="color: white;"><font face="Consolas">Looking for something?</font>
 	<form>
@@ -65,6 +82,7 @@
 		}}
 	</script>
 	<center><p style="color: white; font-size: 0.8em;"><font face="Courier">Artworks, renders, models and all content present on this website made and owned by © Luciano León, ZKISH.</font></center>
+	</div>
 	<!-- FooterEnd -->
   </body>
   
