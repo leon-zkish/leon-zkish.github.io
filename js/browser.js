@@ -19,26 +19,23 @@ class ZkishBrowser extends HTMLElement {
         const input = this.querySelector("#redirectInput");
         const popup = this.querySelector("#errorPopup");
         const redirects = {
-            home: "/",
-            contact: "/contact",
-            discord: "https://discord.com/invite/QDxdMqvzKG",
-            server: "https://discord.com/invite/QDxdMqvzKG",
-            thrashpanda: "/thrashpanda",
-            raccoon: "/thrashpanda",
-            racc: "/thrashpanda",
-            "62": "https://weedplaya62.com",
-            weedplaya: "https://weedplaya62.com",
-            weedplaya62: "https://weedplaya62.com"
+            home: "/home",
+            contact: "/contact", talk2me: "/contact",
+            discord: "https://discord.com/invite/QDxdMqvzKG", server: "https://discord.com/invite/QDxdMqvzKG",
+            thrashpanda: "/thrashpanda", raccoon: "/thrashpanda", racc: "/thrashpanda",
+			"radio": "/radio", "thrash panda radio": "/radio", 
+			cd: "/consume", disc: "/consume", disk: "/consume", consume: "/consume", products: "/consume", shirts: "/consume", merch: "/consume", dormitabis: "/consume", album: "/consume", discs: "/consume", disks: "/consume",  "disk a": "/consume", "disk b": "/consume", buy: "/consume", store: "/consume",
+			ZKISHWARE: "/ZKISHWARE", plugins: "/ZKISHWARE", drumkits: "/ZKISHWARE", "plugin": "/ZKISHWARE", drumkit: "/ZKISHWARE", kit: "/ZKISHWARE", kits: "/ZKISHWARE",
+			"talk to the mask": "/talk2themask", "talk 2 the mask": "/talk2themask", "bring me to the mask": "/talk2themask", "bring me 2 the mask": "/talk2themask", talktothemask: "/talk2themask", talk2themask: "/talk2themask", bringmetothemask: "/talk2themask", bringme2themask: "/talk2themask",
+            "62": "https://weedplaya62.com", weedplaya: "https://weedplaya62.com", weedplaya62: "https://weedplaya62.com", "weedplaya62.com": "weedplaya62.com"
         };
         const customMessages = {
-            buaj: "ew.",
-            skibidi: "Absolutely not.",
-            raccoon: "🦝 ALWAYS LITTERING.",
-            help: "No.",
+            buaj: "Ew.",
+			blagh: "Better.",
+            playa: "weedplaya62.com",
+            show: "Soon.",
             adxmz: "#FreeAdxmz",
-            nigga: "Bro 😭",
-            bitch: "Real.",
-            zkish: "You're already here."
+            zkish: "Are you not already here?"
         };
         form.addEventListener("submit", (event) => {
             event.preventDefault();
