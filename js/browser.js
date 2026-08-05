@@ -14,8 +14,7 @@ class ZkishBrowser extends HTMLElement {
                 </form>
                 <div id="errorPopup">[404: Invalid input!]</div>
             </div>
-        </div>
-    `;
+        </div>`;
         const form = this.querySelector("#redirectForm");
         const input = this.querySelector("#redirectInput");
         const popup = this.querySelector("#errorPopup");
