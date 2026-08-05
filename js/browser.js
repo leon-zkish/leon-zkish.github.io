@@ -1,16 +1,21 @@
 class ZkishBrowser extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <div style="text-align:center;">
-                <div id="searchContainer" style="position:relative; display:inline-block;">
-                    <form id="redirectForm">
-                        <input type="text" id="redirectInput" placeholder="Insert input..." autocomplete="off">
-                        <button type="submit">Go</button>
-                    </form>
-                    <div id="errorPopup">[404: Invalid input!]</div>
-                </div>
+        <style>
+            #redirectForm {display: inline-flex; gap: 5px;}
+            #searchContainer {position: relative; display: inline-block;}
+            #errorPopup {display: none; position: absolute; left: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: #ff3333; color: white; padding: 8px 14px; border-radius: 4px; font-family: Consolas, monospace; white-space: nowrap;}
+        </style>
+        <div style="text-align:center;">
+            <div id="searchContainer">
+                <form id="redirectForm">
+                    <input type="text" id="redirectInput" placeholder="Insert input..." autocomplete="off">
+                    <button type="submit">Go</button>
+                </form>
+                <div id="errorPopup">[404: Invalid input!]</div>
             </div>
-        `;
+        </div>
+    `;
         const form = this.querySelector("#redirectForm");
         const input = this.querySelector("#redirectInput");
         const popup = this.querySelector("#errorPopup");
