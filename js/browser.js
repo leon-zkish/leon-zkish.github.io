@@ -25,9 +25,9 @@ class ZkishBrowser extends HTMLElement {
             thrashpanda: "/thrashpanda", raccoon: "/thrashpanda", racc: "/thrashpanda", ryoko: "/thrashpanda", "ryoko!": "/thrashpanda", rust: "/thrashpanda", rust4466: "/thrashpanda", "4466": "/thrashpanda", gosloke: "/thrashpanda", who: "/thrashpanda",
 			"radio": "/radio", "thrash panda radio": "/radio", 
 			cd: "/consume", disc: "/consume", disk: "/consume", consume: "/consume", products: "/consume", shirts: "/consume", merch: "/consume", dormitabis: "/consume", album: "/consume", discs: "/consume", disks: "/consume",  "disk a": "/consume", "disk b": "/consume", buy: "/consume", store: "/consume",
-			ZKISHWARE: "/ZKISHWARE", plugins: "/ZKISHWARE", drumkits: "/ZKISHWARE", "plugin": "/ZKISHWARE", drumkit: "/ZKISHWARE", kit: "/ZKISHWARE", kits: "/ZKISHWARE",
+			zkishware: "/ZKISHWARE", plugins: "/ZKISHWARE", drumkits: "/ZKISHWARE", "plugin": "/ZKISHWARE", drumkit: "/ZKISHWARE", kit: "/ZKISHWARE", kits: "/ZKISHWARE",
 			"talk to the mask": "/talk2themask", "talk 2 the mask": "/talk2themask", "bring me to the mask": "/talk2themask", "bring me 2 the mask": "/talk2themask", talktothemask: "/talk2themask", talk2themask: "/talk2themask", bringmetothemask: "/talk2themask", bringme2themask: "/talk2themask",
-            "62": "https://weedplaya62.com", weedplaya: "https://weedplaya62.com", weedplaya62: "https://weedplaya62.com", "weedplaya62.com": "weedplaya62.com"
+            "62": "https://weedplaya62.com", weedplaya: "https://weedplaya62.com", weedplaya62: "https://weedplaya62.com", "weedplaya62.com": "https://weedplaya62.com"
         };
         const customMessages = {
             buaj: "Ew.",
