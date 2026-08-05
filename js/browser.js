@@ -22,7 +22,7 @@ class ZkishBrowser extends HTMLElement {
             home: "/home",
             contact: "/contact", talk2me: "/contact",
             discord: "https://discord.com/invite/QDxdMqvzKG", server: "https://discord.com/invite/QDxdMqvzKG",
-            thrashpanda: "/thrashpanda", raccoon: "/thrashpanda", racc: "/thrashpanda",
+            thrashpanda: "/thrashpanda", raccoon: "/thrashpanda", racc: "/thrashpanda", ryoko: "/thrashpanda", ryoko!: "/thrashpanda", rust: "/thrashpanda", rust4466: "/thrashpanda", "4466": "/thrashpanda", gosloke: "/thrashpanda", who: "/thrashpanda",
 			"radio": "/radio", "thrash panda radio": "/radio", 
 			cd: "/consume", disc: "/consume", disk: "/consume", consume: "/consume", products: "/consume", shirts: "/consume", merch: "/consume", dormitabis: "/consume", album: "/consume", discs: "/consume", disks: "/consume",  "disk a": "/consume", "disk b": "/consume", buy: "/consume", store: "/consume",
 			ZKISHWARE: "/ZKISHWARE", plugins: "/ZKISHWARE", drumkits: "/ZKISHWARE", "plugin": "/ZKISHWARE", drumkit: "/ZKISHWARE", kit: "/ZKISHWARE", kits: "/ZKISHWARE",
