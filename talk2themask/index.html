@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-
 <!-- HeaderStart -->
   <head>
   
     <title>ZKISH: talk2themask</title>
 	<link rel="icon" type="image/x-icon" href="https://leon-zkish.github.io/RACC.png">
-	
+
 	<style>
 	html, body {margin: 0;overflow-x: hidden;}
 	#MaskContainer {position: fixed; left: 200px; top: 200px; z-index: 999999; pointer-events: none;}
@@ -325,28 +324,8 @@
 	<br>
 	<br>
 	<!-- FooterStart -->
-	<center><a href="/thrashpanda"><img src="https://leon-zkish.github.io/RACC.png" alt="THRASH PANDA, ALWAYS LITTERING" style="width: 132px; min-width: 132px; opacity: 0.32;"></a></center>
-	<center><p style="color: white; opacity: 0.32;"><font face="Consolas">Looking for something?</font>
-	<form>
-		<select id="frameworks" onchange="goToPage()">
-		<option>[[[???]]]</option>
-		<option value="/index.html">ZKISH</option>
-		<option value="/portfolio">Portfolio</option>
-		<option value="/consume">Consume</option>
-		<option value="/talk2themask">talk2themask</option>
-		<option value="/radio">THRASH PANDA: Radio</option>
-		<option value="/zkishware">ZKISHWARE</option>
-		<option value="/contact">Contact</option>
-		</select>
-	</form></center>
-	<script>
-	function goToPage() {
-		const page = document.getElementById("frameworks").value;
-		if (page) {
-			window.location.href = page;
-		}}
-	</script>
-	<center><p style="color: white; font-size: 0.8em;"><font face="Courier">Artworks, renders, models and all content present on this website made and owned by © Luciano León, ZKISH.</font></center>
+	<script src="/js/footer.js" defer></script>
+	<zkish-footer></zkish-footer>
 	<!-- FooterEnd -->
   </body>
  
