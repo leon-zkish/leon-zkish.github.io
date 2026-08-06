@@ -24,7 +24,7 @@ class ZkishConnection extends HTMLElement {
                 } else
 					{msg = "ZKISH.net: UNSTABLE";}
 
-                box.innerHTML = `${msg}.<br>Connection: ${ms}ms.<br>"User: Not logged in."`;
+                box.innerHTML = `${msg}.<br>Connection: ${ms}ms.<br>User: Not logged in.`;
             } catch {box.textContent = "ZKISH.net: OFFLINE";}
         }
         checkConnection();
