@@ -145,6 +145,21 @@
 	<!-- FooterStart -->
 	<script src="/js/footer.js" defer></script>
 	<zkish-footer></zkish-footer>
+
+	const audio = document.getElementById("bgmusic");
+	const sw = document.getElementById("MusicSwitch");
+	sw.addEventListener("change", async () => {
+		if (sw.checked) {
+			try {
+				await audio.play();
+			} catch (err) {
+				console.error("No se pudo reproducir el audio:", err);
+				sw.checked = false;
+			}
+		} else {
+			audio.pause();
+		}
+	});
 	<!-- FooterEnd -->
   </body>
  
