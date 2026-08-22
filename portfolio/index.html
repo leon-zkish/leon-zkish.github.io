@@ -145,7 +145,15 @@
 	<!-- FooterStart -->
 	<script src="/js/footer.js" defer></script>
 	<zkish-footer></zkish-footer>
-
+	
+	
+	<script>
+	function goToPage() {
+		const page = document.getElementById("frameworks").value;
+		if (page) {
+			window.location.href = page;
+		}}
+	<!-- This makes the sound work -->
 	const audio = document.getElementById("bgmusic");
 	const sw = document.getElementById("MusicSwitch");
 	sw.addEventListener("change", async () => {
@@ -160,6 +168,8 @@
 			audio.pause();
 		}
 	});
+	</script>
+
 	<!-- FooterEnd -->
   </body>
  
