@@ -1,0 +1,80 @@
+<html>
+
+<!-- HeaderStart -->
+  <head>
+  
+    <title>THRASH PANDA</title>
+	<link rel="icon" type="image/x-icon" href="https://leon-zkish.github.io/RACC.png">
+  </head>
+	<style>
+	.jump {
+    display: block;
+    height: 0.5em;
+}
+	</style>
+	<body style="background-color:black;">
+	<center><a href="/thrashpanda";><img src="https://leon-zkish.github.io/tptxt.png" alt="THRASH PANDA, ALWAYS LITTERING" style="width: 384px; min-width: 384px;"></a>
+	<h1 style="color: white;" onclick="alert('HURTS')"><font face="Courier">[[[SONGWARS]]]</center></font></h1>
+	<!-- HeaderEnd -->
+	<center>
+	<b><p style="color: white; font-size: 1.32em;"><font face="Courier">Reglas</p></b>
+	<p style="color: white; font-size: 0.96em; margin: 0 8%;">
+	No hay costo de entrada.<span class="jump"></span>
+	Un track por persona.<span class="jump"></span>
+	Si un individuo manda más de un tema, será descalificado, aliases y alteregos no excusan ésto.<span class="jump"></span>
+	Sólo escucharemos 60 segundos de cada track subido. En caso de querer mostrar una parte específica de una canción, eso será responsabilidad del competidor el cómo ajusta y ordena su pieza.<span class="jump"></span>
+	Las canciones solo pueden tener a un vocalista, siendo que eso y la totalidad del tema es lo que se ve, siendo que calificaremos basados en la habilidad, performance y mezcla del vocalista, más el cómo encaja éste en su track.<span class="jump"></span>
+	El equipo de Thrash Panda puede descalificar a "malos competidores" y saltar tracks si se considera fuera de lugar por cualquier motivo<span class="jump"></span>
+	Por motivos de transparencia, cada competidor debe subir él mismo su los track a un canal de visibilidad pública designado en el servidor de Discord de Thrash Panda<span class="jump"></span>
+	</font></p>	
+	
+	<a href="https://leon-zkish.github.io/thrashpanda/songwars.html"><p style="color: red; font-family: Consolas; font-size: 1.1em;">See rules in english?</a></p>
+	
+	<b><p style="color: white; font-size: 1.32em;"><font face="Courier">Prizes</p></b>
+	<p style="color: white; font-size: 0.96em; margin: 0 8%;">
+	1er lugar:<br>
+	Beat personalizado por miembro de Thrash Panda a elección.<br>
+	Portada y tracklist 2D por miembro de Thrash Panda a elección.<br>
+	Feature de miembro de Thrash Panda a elección.
+	<span class="jump"></span><br>
+	2do lugar:<br>
+	Beat a elección de un miembro de Thrash Panda a elección.<br>
+	Feature de miembro de Thrash Panda a elección.
+	<span class="jump"></span><br>
+	3er lugar:<br>
+	Portada 2D hecha por un miembro de Thrash Panda randomizado
+	<br><br><br>
+	Los 3 lugares más altos consiguen un rol especial en el servidor de Discord de Thrash Panda
+	</font></p><br>
+	<b><p style="color: white; font-size: 1.32em;"><font face="Courier">Qué estás esperando?</p></b>
+	
+	<style>#countdown {color: red;}</style>
+	<p id="countdown"></p>
+	<script>
+	// Timer cawabunga
+		const dueDate = new Date("2026-09-04T18:00:00-04:00");
+		function updateCountdown() {
+			const now = new Date();
+			const difference = dueDate - now;
+			if (difference <= 0) {document.getElementById("countdown").textContent = "No hay más tiempo!";return;}
+			const days = Math.floor(difference/(1000*60*60*24));
+			const hours = Math.floor((difference%(1000*60*60*24))/(1000*60*60));
+			const minutes = Math.floor((difference%(1000*60*60))/(1000*60));
+			const seconds = Math.floor((difference%(1000*60))/1000);
+			document.getElementById("countdown").textContent =
+				`${days} días, ${hours} horas, ${minutes} minutos, y ${seconds} segundos para participar`;
+		}
+		updateCountdown();
+		setInterval(updateCountdown, 1000);
+	</script>
+	<a href="https://discord.com/invite/QDxdMqvzKG"><p style="color: red; font-family: Consolas; font-size: 1.2em;">Thrash Panda Discord</a></p>
+	
+	</center>
+  </body>
+  
+	<!-- FooterStart -->
+		<script src="/js/footer.js" defer></script>
+		<zkish-footer></zkish-footer>
+	<!-- FooterEnd -->
+  
+</html>
