@@ -1,20 +1,60 @@
 <!DOCTYPE html>
 <html>
 
-
 <!-- HeaderStart -->
   <head>
   
     <title>ZKISH: ZKISHWARE</title>
 	<link rel="icon" type="image/x-icon" href="https://leon-zkish.github.io/RACC.png">
   </head>  
-  <body style="background-color:black;">
+	<body style="background-color:black;">
     <center><h1 style="color: #6B00A1;" onclick="alert('HURTS')"><font face="Courier">ZKISHWARE</center></font></h1>
 	<center><a href="/index.html"><img src="https://leon-zkish.github.io/zkishwhite.png" alt="ZKISH" style="width: 128px; min-width: 128px;"></a></center>
 	<!-- HeaderEnd -->
-	<br>
-	<center><p style="color: white; font-size: 0.8em;"><font face="Courier">Not much here yet...<br>Would you mind coming back later? I might have a little something for you.</font></center>
-	<br>
+	
+	<center><p style="color: white; font-size: 1.6em;"><font face="Consolas">[ Audio files-software ]</center></font>
+	<center><p style="color: white; font-size: 1em;"><font face="Consolas">Check out what's new over here!</center></font>
+	
+	<!-- Rotating bs -->
+	<style>
+	.container {
+    display: flex;
+    align-items: center;
+    gap: 32px;          
+    margin-bottom: 2px;
+	
+	a:link {  color: #6B00A1;}
+	a:visited {  color: #6B00A1;}
+	a:hover {  color: #500078;
+	text-decoration: underline;}
+	a:active {  color: white;}
+	}
+	</style>
+	
+	<div class="container">
+	<a href="/soon" target="_blank";><img src="https://leon-zkish.github.io/zkishwhite.png" alt="ZKISH" style="width: 384px;">
+	<div>
+    <p style="color: #6B00A1; font-family: Consolas; font-size: 2em;">DIGITAL FILTH<span style="font-size: 0.64em;"> (Drumkit) $16 USD?</a></p>
+	<p style="color: white; font-family: Consolas;">[XXX] Drum + Percussion samples<br>[XXX] 808s<br>[XXX] Loops<br>AND MORE!</p>
+    <button popovertarget="about_digitalfilth">About DIGITAL FILTH</button>
+	<button popovertarget="buy_digitalfilth">Buy now!</button>
+	<button popovertarget="buy_digitalfilth">Trial version</button>
+	</div>	
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/mG78jInhIxM?si=VDJiS5YfOz-jLt_G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	</div>
+	<div id="about_digitalfilth" popover style="color: black;">
+	<p style="font-family: Consolas; max-width: 1280px; font-size: .96em;">By buying 'DIGITAL FILTH' you get:<br>+ xxx drum and percussion sound samples.<br>+ xxx 808 samples <br>+ xxx variety samples and audio (risers, vox, chants, tags).<br>+ xxx Mixing presets (for FL Studio).<br>For a total of xxx audio files.<br><br>These physical products are to be used by the buyer only, being that via 'itch.io' or a THRASH PANDA member.<br>Do not resell, share, replicate for distribution purposes or redistribute these files without proper permission.<br>By buying any of the products here published, you agree to all of this information and it's changes if there's any at any given time.<br>You may click away from this pop-up so it dissapears.</p>
+	</div>
+	<div id="buy_digitalfilth" popover style="color: black;">
+	<p style="font-family: Consolas; max-width: 1280px; font-size: .96em;">DIGITAL FILTH is not available as of right now!</p>
+	</div>
+	<div id="buy_digitalfilth" popover style="color: black;">
+	<p style="font-family: Consolas; max-width: 1280px; font-size: .96em;">DIGITAL FILTH is not available as of right now!</p>
+	</div>
+	
+	<script>
+	buy_digitalfilth.onbeforetoggle = e => e.newState == "open" && setTimeout(() => buy_digitalfilth.hidePopover(), 3200);
+	</script>
 	
 	<!-- FooterStart -->
 	<script src="/js/footer.js" defer></script>
