@@ -5,7 +5,7 @@ class ZkishFooter extends HTMLElement {
 			#footer {margin-top: auto;text-align: center;}#footer p {color: black;font-family: Consolas, monospace;}#footer select {font-family: Consolas, monospace;}
 		</style>
 		<div id="footer">
-            <a href="/thrashpanda"><img oncontextmenu="javascript:return false;" src="https://leon-zkish.github.io/RACC.png"alt="THRASH PANDA, ALWAYS LITTERING"style="width:132px; min-width:132px;"></a>
+            <a href="/thrashpanda"><img src="https://leon-zkish.github.io/RACC.png"alt="THRASH PANDA, ALWAYS LITTERING"style="width:132px; min-width:132px;"></a>
             <p>Looking for something?</p>
             <form>
                 <select id="frameworks">
