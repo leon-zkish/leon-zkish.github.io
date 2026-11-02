@@ -21,6 +21,11 @@ class ZkishFooter extends HTMLElement {
                 made and owned by © Luciano León, ZKISH.
             </p>
         </div>`;
+
+		this.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+        });
+		
         const selector = this.querySelector("#frameworks");
         selector.addEventListener("change", () => {
             if (selector.value) {
